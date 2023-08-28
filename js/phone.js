@@ -29,7 +29,7 @@ const displayPhones = (phones, isShowAll) =>{
     }
 
     phones.forEach(phone => {
-        // console.log(phone);
+        console.log(phone);
         // step-2: create a div
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card bg-gray-100 p-4 shadow-xl`;
@@ -40,7 +40,7 @@ const displayPhones = (phones, isShowAll) =>{
             <h2 class="card-title">${phone.phone_name}</h2>
             <p>There are many variations of passages of available, but the majority have suffered</p>
             <div class="card-actions justify-center">
-                <button onclick = "handleShowDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
+                <button onclick = "handleShowDetails('${phone.slug}')" class="btn btn-primary capitalize">Show Details</button>
             </div>
         </div>
         `;
@@ -62,15 +62,23 @@ const handleShowDetails = async (id) =>{
 }
 
 const showPhoneDetails = (phone) =>{
-    console.log(phone);
-    const phoneName = document.getElementById('show-details-phone-name');
-    phoneName.innerText = phone.name;
+    // console.log(phone);
+    // const phoneName = document.getElementById('show-details-phone-name');
+    // phoneName.innerText = phone.name;
 
     const showDetailsContainer = document.getElementById('show-details-container');
     showDetailsContainer.innerHTML = `
-        <img src="${phone.image}" alt"" />
-        <p><span>Storage</span>${phone?.mainFeatures?.storage}</p>
-        <p><span>Storage</span>${phone?.others?.GPS}</p>
+        <img class="mx-auto justify-center mb-4" src="${phone.image}" alt"" />
+        <p class="font-bold text-3xl">${phone.name}</p>
+        <p class="text-[#706F6F]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        <p><span class="font-bold">Storage : </span>${phone?.mainFeatures?.storage}</p>
+        <p><span class="font-bold">Display Size : </span>${phone?.mainFeatures?.displaySize}</p>
+        <p><span class="font-bold">Chipset : </span>${phone?.mainFeatures?.chipSet}</p>
+        <p><span class="font-bold">Memory : </span>${phone?.mainFeatures?.memory}</p>
+        <p><span class="font-bold">Slug : </span>${phone.slug}</p>
+        <p><span class="font-bold">Release date : </span>${phone.releaseDate}</p>
+        <p><span class="font-bold">Brand : </span>${phone.brand}</p>
+        <p><span class="font-bold">GPS : </span>${phone?.others?.GPS || 'No GPS'}</p>
     `
 
     // show the modal
