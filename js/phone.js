@@ -29,7 +29,7 @@ const displayPhones = (phones, isShowAll) =>{
     }
 
     phones.forEach(phone => {
-        console.log(phone);
+        // console.log(phone);
         // step-2: create a div
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card bg-gray-100 p-4 shadow-xl`;
@@ -91,7 +91,7 @@ const handleSearch = (isShowAll) =>{
     toggleLoadingSpinner(true)
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    console.log(searchText);
+    // console.log(searchText);
     loadPhone(searchText, isShowAll);
 }
 // handle search recap
